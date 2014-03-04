@@ -11,6 +11,8 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher" >
+
+        <!-- Principal activity -->
         <activity
             android:name="com.udea.clase3_actividadesmascheveres.ActivityPersona"
             android:label="@string/app_name" >
@@ -20,8 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <!-- declaramos nuestra actividad nueva ActivityOther -->
+
+        <!-- setting new activity ActivityOther -->
         <activity android:name="com.udea.clase3_actividadesmascheveres.ActivityOther" >
         </activity>
     </application>

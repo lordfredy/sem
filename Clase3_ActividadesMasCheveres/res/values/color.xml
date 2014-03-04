@@ -2,5 +2,6 @@
 <resources>
 
     <color name="azulclaro">#8888FF</color>
+    <color name="grismedio">#555555</color>
 
 </resources>
