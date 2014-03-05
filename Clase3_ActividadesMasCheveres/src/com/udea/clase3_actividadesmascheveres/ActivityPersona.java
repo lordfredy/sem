@@ -182,7 +182,8 @@ public class ActivityPersona extends Activity {
 		// colocamos un campo boolean con su identificador
 		bundle.putBoolean("check", checkBox.isChecked());
 		// colocamos un string con su identificador
-		bundle.putString("personaje", spinnerTipoDocumento.getSelectedItem().toString());
+		bundle.putString("tipoDocumento", spinnerTipoDocumento.getSelectedItem().toString());
+		bundle.putBoolean("check", checkBox.isChecked());
 		// a nuestro intent debemos agregarle ese bundle para que lo lleve a la
 		// nueva actividad
 		intent.putExtra("mibundle", bundle);

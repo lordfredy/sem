@@ -191,8 +191,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:onClick="iniciarActividadBundle"
-            android:text="@string/guardar" />
-
+            android:text="@string/guardar"
+            android:layout_gravity="right" />
     </LinearLayout>
 
 </ScrollView>
