@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -15,10 +16,14 @@ import android.widget.Toast;
 public class ActivityPersona extends Activity {
 
 	Spinner spinnerTipoDocumento;
-	RadioButton radioButton1;
-	RadioButton radioButton2;
-	RadioGroup radioGroup;
-	CheckBox checkBox;
+	EditText etDocumento;
+	EditText etNombres;
+	EditText etApellidos;
+	EditText etCorreo;
+	RadioGroup rgGenero;
+	RadioButton rbGeneroMasculino;
+	RadioButton rbGeneroFemenino;
+	CheckBox cbEstado;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +54,16 @@ public class ActivityPersona extends Activity {
 	private void obtenerComponentes() {
 
 		spinnerTipoDocumento = (Spinner) findViewById(R.id.layout_persona_tipo_documento);
-		radioGroup = (RadioGroup) findViewById(R.id.layout_persona_genero);
-		radioButton1 = (RadioButton) findViewById(R.id.layout_persona_gen_masculino);
-		radioButton2 = (RadioButton) findViewById(R.id.layout_persona_gen_femenino);
-		checkBox = (CheckBox) findViewById(R.id.layout_persona_activo);
+		rgGenero = (RadioGroup) findViewById(R.id.layout_persona_genero);
+		rbGeneroMasculino = (RadioButton) findViewById(R.id.layout_persona_gen_masculino);
+		rbGeneroFemenino = (RadioButton) findViewById(R.id.layout_persona_gen_femenino);
+		cbEstado = (CheckBox) findViewById(R.id.layout_persona_activo);
+		
+		etDocumento = (EditText) findViewById(R.id.layout_persona_documento);
+		etNombres = (EditText) findViewById(R.id.layout_persona_nombre);
+		etApellidos = (EditText) findViewById(R.id.layout_persona_apellido);
+		etCorreo = (EditText) findViewById(R.id.layout_persona_correo);
+		
 	}
 
 	/**
@@ -100,7 +111,7 @@ public class ActivityPersona extends Activity {
 		 * para el RadioGroup, podemos obtener el id del elemento radioButton
 		 * que se encuentre seleccionado
 		 */
-		int idSeleccionado = radioGroup.getCheckedRadioButtonId();
+		int idSeleccionado = rgGenero.getCheckedRadioButtonId();
 		/*
 		 * despues de tomaar el id del radioButton seleccionado, preguntamos
 		 * cual es el elemento
@@ -108,12 +119,12 @@ public class ActivityPersona extends Activity {
 		switch (idSeleccionado) {
 		case R.id.layout_persona_gen_masculino:
 			Toast.makeText(getApplicationContext(),
-					radioButton1.getText().toString(), Toast.LENGTH_SHORT)
+					rbGeneroMasculino.getText().toString(), Toast.LENGTH_SHORT)
 					.show();
 			break;
 		case R.id.layout_persona_gen_femenino:
 			Toast.makeText(getApplicationContext(),
-					radioButton2.getText().toString(), Toast.LENGTH_SHORT)
+					rbGeneroFemenino.getText().toString(), Toast.LENGTH_SHORT)
 					.show();
 			break;
 
@@ -161,7 +172,8 @@ public class ActivityPersona extends Activity {
 		// al intent podemos agregarle informacion que va a llevar a nuestra
 		// nueva actividad, tiene
 		// un identificador que es el texto en este caso "personaje"
-		intent.putExtra("personaje", spinnerTipoDocumento.getSelectedItem().toString());
+		intent.putExtra("personaje", spinnerTipoDocumento.getSelectedItem()
+				.toString());
 		startActivity(intent);
 
 	}
@@ -174,20 +186,64 @@ public class ActivityPersona extends Activity {
 	 */
 	public void iniciarActividadBundle(View view) {
 
-		Intent intent = new Intent(this, ActivityOther.class);
-		// creamos un bundle, un bundle no es mas que un hashmap en donde vamos
-		// a guardar la
-		// informacion que querremos llevar a la otra actividad
-		Bundle bundle = new Bundle();
-		// colocamos un campo boolean con su identificador
-		bundle.putBoolean("check", checkBox.isChecked());
-		// colocamos un string con su identificador
-		bundle.putString("tipoDocumento", spinnerTipoDocumento.getSelectedItem().toString());
-		bundle.putBoolean("check", checkBox.isChecked());
-		// a nuestro intent debemos agregarle ese bundle para que lo lleve a la
-		// nueva actividad
-		intent.putExtra("mibundle", bundle);
-		startActivity(intent);
+		try {
+			Intent intent = new Intent(this, ActivityOther.class);
+			// creamos un bundle, un bundle no es mas que un hashmap en donde
+			// vamos
+			// a guardar la
+			// informacion que querremos llevar a la otra actividad
+			Bundle bundle = new Bundle();
+			// colocamos un campo boolean con su identificador
+
+			bundle.putBoolean("check", cbEstado.isChecked());
+
+			String tipoDocumento = spinnerTipoDocumento.getSelectedItem()
+					.toString();
+			if (spinnerTipoDocumento.getSelectedItemPosition() == 0) {
+				Toast.makeText(getApplicationContext(),
+						"Seleccione un tipo de documento valido",
+						Toast.LENGTH_SHORT).show();
+				return;
+			}
+			String documento = etDocumento.getText().toString();
+			String nombre = etNombres.getText().toString();
+			String apellidos = etApellidos.getText().toString();
+			String correo = etCorreo.getText().toString();
+
+			String genero = "";
+			int idSeleccionado = rgGenero.getCheckedRadioButtonId();
+			switch (idSeleccionado) {
+			case R.id.layout_persona_gen_masculino:
+				genero = rbGeneroMasculino.getText().toString();
+				break;
+			case R.id.layout_persona_gen_femenino:
+				genero = rbGeneroFemenino.getText().toString();
+				break;
+			default:
+				Toast.makeText(getApplicationContext(), "Seleccionar genero",
+						Toast.LENGTH_SHORT).show();
+				return;
+			}
+
+			bundle.putString("tipoDocumento", tipoDocumento);
+			bundle.putString("documento", documento);
+			bundle.putString("nombre", nombre);
+			bundle.putString("apellidos", apellidos);
+			bundle.putString("correo", correo);
+			bundle.putString("genero", genero);
+
+			bundle.putBoolean("estado", cbEstado.isChecked());
+
+			// A nuestro intent debemos agregarle ese bundle para que lo lleve a
+			// la
+			// nueva actividad
+			intent.putExtra("mibundle", bundle);
+			startActivity(intent);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Toast.makeText(getApplicationContext(), "EROR! " + e.getMessage(),
+					Toast.LENGTH_SHORT).show();
+		}
 
 	}
 

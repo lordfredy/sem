@@ -8,11 +8,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ActivityOther extends Activity {
 
-	TextView textView;
+	TextView tvNombre;
+	TextView tvApellido;
+	TextView tvDocumento;
+	TextView tvTipoDocumento;
+	ImageView imagen;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,12 @@ public class ActivityOther extends Activity {
 	 */
 	private void obtenerComponentes() {
 
-		textView = (TextView) findViewById(R.id.layout_other_textViewPersonaje);
+		tvNombre = (TextView) findViewById(R.id.layout_other_nombre);
+		tvApellido = (TextView) findViewById(R.id.layout_other_apellido);
+		tvDocumento = (TextView) findViewById(R.id.layout_other_documento);
+		tvTipoDocumento = (TextView) findViewById(R.id.layout_other_tipo_documento);
+		imagen = (ImageView) findViewById(R.id.layout_other_image);
+
 	}
 
 	/**
@@ -43,48 +53,29 @@ public class ActivityOther extends Activity {
 	 */
 	private void escribirPersonaje() {
 
-		// tomamos el intent que nos trajo hasta aca
 		Intent intent = getIntent();
-		// debemos estar seguros de que el intente posee informacion antes de ir
-		// a consultarlo
 		if (intent.getExtras() != null) {
 
-			// como ya sabemos que el intente llega con informacion, para efecto
-			// del ejemplo,
-			// verificare si me llega mi bundle
 			if (intent.hasExtra("mibundle")) {
-				// sabiendo que si lo trae, tomamos su informacion
 				Bundle bundle = intent.getBundleExtra("mibundle");
 
-				// tomamos la informacion que necesitamos del bundle
 				boolean isCheck = bundle.getBoolean("check");
 				String personaje = bundle.getString("personaje");
-				textView.setText(personaje);
+				tvNombre.setText(personaje);
 				if (isCheck) {
-					// Dos maneras de tomar de setear un color
-					// 1. quemado
-					textView.setBackgroundColor(Color.parseColor("#8888FF"));
-					// 2. de resources, ver archivo color.xml
-					// textView.setBackgroundColor(getResources().getColor(R.color.azulclaro));
+					tvNombre.setBackgroundColor(Color.parseColor("#8888FF"));
 				}
-			}
-			// Si el intent no posee el bundle indicado, para efectos del
-			// ejercicio y la practica vamos a preguntar si tiene un extra
-			// llamado personaje
-			else {
-				// preguntamos si el intent posee el extra "personaje"
+			} else {
 				if (intent.hasExtra("personaje")) {
 					String message = intent.getStringExtra("personaje");
-					textView.setText(message);
+					tvNombre.setText(message);
 				} else {
-					textView.setText("No se encontro el extra \"personaje\"");
+					tvNombre.setText("No se encontro el extra \"personaje\"");
 				}
 			}
 
-		}
-		// si nunca es enviado el personaje
-		else {
-			textView.setText("No se encontro el extra \"personaje\"");
+		} else {
+			tvNombre.setText("No se encontro el extra \"personaje\"");
 		}
 
 	}

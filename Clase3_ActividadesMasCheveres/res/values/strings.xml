@@ -22,5 +22,7 @@
     <string name="check">Check Box</string>
     <string name="newActivity">Nueva Actividad</string>
     
+    <string name="contentImage">Imagen</string>
+    
 
 </resources>
