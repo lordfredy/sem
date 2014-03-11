@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">_02_Act_05</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="titulo_docentes">Docentes</string>
+    <string name="titulo_estudiantes">Estudiantes</string>
+    <string name="add_docente">Adicionar Docente</string>
+    <string name="add_estudiante">Adicionar Estudiante</string>
+    <string name="Save">Guardar</string>
+    <string name="Cancel">Cancelar</string>
+
+</resources>

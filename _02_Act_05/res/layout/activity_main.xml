@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="14dp"
+    tools:context=".MainActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="5dp" >
+
+        <TextView
+            style="@style/bg_titulo_docentes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_docentes" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:padding="5dp" >
+
+        <TextView
+            style="@style/bg_titulo_estudiantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_estudiantes" />
+    </ScrollView>
+
+    <TableLayout
+        style="@style/layoutFW"
+        android:stretchColumns="0,1" >
+
+        <TableRow style="@style/layoutFW.centerVertical" >
+
+            <Button
+                style="@style/itemTableText"
+                android:text="@string/add_docente" />
+
+            <Button
+                style="@style/itemTableText"
+                android:text="@string/add_estudiante" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
