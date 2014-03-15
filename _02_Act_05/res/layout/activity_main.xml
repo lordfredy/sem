@@ -30,20 +30,28 @@
             android:text="@string/titulo_estudiantes" />
     </ScrollView>
 
-    <TableLayout
-        style="@style/layoutFW"
-        android:stretchColumns="0,1" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        >
 
-        <TableRow style="@style/layoutFW.centerVertical" >
+        <Button
+            style="@style/itemTableText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/add_grey_32"
+            android:text="@string/text_docente" />
 
-            <Button
-                style="@style/itemTableText"
-                android:text="@string/add_docente" />
+        <Button
+            style="@style/itemTableText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/add_grey_32"
+            android:text="@string/text_estudiante" />
 
-            <Button
-                style="@style/itemTableText"
-                android:text="@string/add_estudiante" />
-        </TableRow>
-    </TableLayout>
+    </LinearLayout>
 
 </LinearLayout>
