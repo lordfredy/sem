@@ -10,5 +10,53 @@
     <string name="text_estudiante">Estudiante</string>
     <string name="Save">Guardar</string>
     <string name="Cancel">Cancelar</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="edad">Edad</string>
+    <string name="genero">Sexo</string>
+    <string name="institucion">Lugar</string>
+    <string name="hint_nombres">Ingrese su nombre</string>
+    <string name="hint_apellidos">Ingrese su apellido</string>
+    <string name="hint_edad">Ingrese su edad</string>
+    <string name="hint_institucion">Ingrese su institucion</string>
+    <string name="hint_items">Items</string>
+    <string name="hint_nivel">Nivel</string>
+
+    <string-array name="genero_array">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+    <string-array name="semestres_array">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+        <item>IX</item>
+        <item>X</item>
+    </string-array>
+    <string-array name="profesion_array">
+        <item>Ing. Sistemas</item>
+        <item>Ing. Electronica</item>
+        <item>Ing. Quimica</item>
+        <item>Ing. Civil</item>
+        <item>Arquitectura</item>
+        <item>Odontologia</item>
+        <item>Bibliotecologia</item>
+        <item>Medicina</item>
+        <item>Sicologia</item>
+        <item>Sociologia</item>
+        <item>Quimica. Farmaceutica</item>
+        <item>Economia</item>
+        <item>Ing. Ambiental</item>
+        <item>Microbiologia</item>
+        <item>Ing. Materiales</item>
+        <item>Ing. Industrial</item>
+    </string-array>
+
+    <string name="title_activity_ver">Ver</string>
 
 </resources>

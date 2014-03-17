@@ -45,7 +45,6 @@
     </style>
 
     <style name="itemTableText">
-        
         <item name="android:textStyle">normal</item>
         <item name="android:background">@drawable/boton</item>
     </style>

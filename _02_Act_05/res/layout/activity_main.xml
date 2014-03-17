@@ -6,52 +6,68 @@
     android:padding="14dp"
     tools:context=".MainActivity" >
 
+    <TextView
+        style="@style/bg_titulo_docentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_docentes" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:padding="5dp" >
 
-        <TextView
-            style="@style/bg_titulo_docentes"
+        <ListView
+            android:id="@+id/layout_main_lista_docentes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo_docentes" />
+            android:layout_height="wrap_content" >
+        </ListView>
     </ScrollView>
 
+    <TextView
+        style="@style/bg_titulo_estudiantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_estudiantes" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:padding="5dp" >
 
-        <TextView
-            style="@style/bg_titulo_estudiantes"
+        <ListView
+            android:id="@+id/layout_main_lista_estudiantes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo_estudiantes" />
+            android:layout_height="wrap_content" >
+        </ListView>
     </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:orientation="horizontal"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
         <Button
             style="@style/itemTableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/add_grey_32"
+            android:drawableLeft="@android:drawable/ic_menu_add"
+            android:onClick="addDocente"
             android:text="@string/text_docente" />
 
         <Button
             style="@style/itemTableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/add_grey_32"
+            android:drawableLeft="@android:drawable/ic_menu_add"
+            android:onClick="addEstudiante"
             android:text="@string/text_estudiante" />
-
     </LinearLayout>
 
 </LinearLayout>
